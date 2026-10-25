@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoBin™ | Autonomous AI Waste Management & Smart Circular Economy</title>
+  <meta name="description"
+    content="EcoBin transforms municipal and enterprise waste management with solar-powered AI sorting bins, real-time IoT fleet routing, and zero-landfill circular analytics.">
+  <meta name="keywords"
+    content="smart waste management, AI recycling bin, IoT trash bin, circular economy, waste route optimization, ESG carbon reporting, EcoBin">
+  <meta name="author" content="EcoBin Technologies Inc.">
+
+  <!-- OpenGraph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EcoBin™ | Autonomous AI Waste Management & Smart Circular Economy">
+  <meta property="og:description"
+    content="Cutting collection costs by 68% with optical AI sorting, solar self-compaction, and dynamic truck dispatch.">
+  <meta property="og:image" content="assets/images/hero-bin.jpg">
+  <meta property="og:url" content="https://ecobin.tech">
+
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EcoBin",
+    "url": "https://ecobin.tech",
+    "logo": "https://ecobin.tech/assets/images/hero-bin.jpg",
+    "description": "Smart AI-driven waste management systems and solar compacting bins for smart cities and enterprises.",
+    "sameAs": [
+      "https://twitter.com/ecobintech",
+      "https://linkedin.com/company/ecobin"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Ambient Background Glow Mesh & Mouse Follower -->
+  <div class="ambient-mesh" aria-hidden="true">
+    <div class="mesh-orb mesh-orb-1"></div>
+    <div class="mesh-orb mesh-orb-2"></div>
+    <div class="mesh-orb mesh-orb-3"></div>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" id="brandLogoLink">
+        <div class="logo-symbol">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+          </svg>
+        </div>
+        <span>EcoBin</span>
+        <span class="logo-badge">GEN-3 IoT</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#simulator" class="nav-link">Live Bin Simulator</a></li>
+          <li><a href="#technology" class="nav-link">Hardware & AI</a></li>
+          <li><a href="#city-fleet" class="nav-link">Fleet Telemetry Map</a></li>
+          <li><a href="#calculator" class="nav-link">ROI & ESG Calculator</a></li>
+          <li><a href="#solutions" class="nav-link">Solutions</a></li>
+          <li><a href="#pricing" class="nav-link">Pilot Programs</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Dark/Light Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Color Theme" title="Switch Theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="btn btn-primary btn-glow" data-open-modal="pilotModal" id="headerPilotBtn">
+          Request City Pilot
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         Hero Section
+         ==================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge-pill">
+              <span class="badge-pulse-dot"></span>
+              <span>Next-Gen Waste Tech • 94.2% Landfill Diversion</span>
+            </div>
+
+            <h1 class="hero-title">
+              Turn Urban Waste into Circular Wonder with <span class="gradient-text">AI & Solar IoT</span>
+            </h1>
+
+            <p class="hero-description">
+              EcoBin replaces passive dumpsters with solar-powered, AI-sorting smart stations. We eliminate overflow,
+              slash collection hauling emissions by 68%, and incentivize citizens with real-time green rewards.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#simulator" class="btn btn-primary btn-lg btn-glow" id="heroTrySimBtn">
+                ⚡ Try Live Interactive Bin
+              </a>
+              <button class="btn btn-secondary btn-lg" data-open-modal="pilotModal" id="heroScheduleDemoBtn">
+                Book Municipal Consultation
+              </button>
+            </div>
+
+            <!-- Global Live Fleet Stats Bar -->
+            <div class="hero-stats-bar">
+              <div class="stat-item">
+                <div class="stat-value">14,820<span class="unit">+</span></div>
+                <div class="stat-label">Active Smart Bins</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">324.5<span class="unit">k MT</span></div>
+                <div class="stat-label">Waste Diverted</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">-68<span class="unit">%</span></div>
+                <div class="stat-label">Truck Fuel Saved</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">99.2<span class="unit">%</span></div>
+                <div class="stat-label">AI Sorting Purity</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual with Interactive Hotspots -->
+          <div class="hero-visual-wrap">
+            <div class="hero-visual-card" id="heroVisualCard">
+              <img src="assets/images/hero-bin.jpg" alt="EcoBin Solar Smart Waste Station in City Park"
+                class="hero-main-img" id="heroBinImg">
+
+              <!-- Floating Live Sensor Badges -->
+              <div class="floating-status-pill pill-top-left">
+                <span class="badge-pulse-dot"></span>
+                <span>Solar Battery: 98% • Park Cleanliness: 98%</span>
+              </div>
+
+              <div class="floating-status-pill pill-bottom-right">
+                <span>🤖 AI Multi-Stream Compactor Active</span>
+              </div>
+
+              <!-- Interactive Hotspot Pins -->
+              <button class="hotspot-marker hotspot-camera" data-hotspot="camera" aria-label="AI Camera Hotspot"
+                title="Click to view AI Camera specs">
+                <span class="hotspot-marker-inner"></span>
+              </button>
+              <button class="hotspot-marker hotspot-solar" data-hotspot="solar" aria-label="Solar Roof Hotspot"
+                title="Click to view Solar specs">
+                <span class="hotspot-marker-inner"></span>
+              </button>
+              <button class="hotspot-marker hotspot-chute" data-hotspot="chute" aria-label="Chute Hotspot"
+                title="Click to view Chute specs">
+                <span class="hotspot-marker-inner"></span>
+              </button>
+              <button class="hotspot-marker hotspot-compactor" data-hotspot="compactor" aria-label="Compactor Hotspot"
+                title="Click to view Compactor specs">
+                <span class="hotspot-marker-inner"></span>
+              </button>
+
+              <!-- Hotspot Tooltip Popup -->
+              <div class="hotspot-tooltip" id="hotspotTooltip" style="display: none;">
+                <div class="tooltip-text">
+                  <h4 id="hotspotTooltipTitle">Component Spec</h4>
+                  <p id="hotspotTooltipDesc">Description details...</p>
+                </div>
+                <button class="tooltip-close" id="hotspotTooltipClose" aria-label="Close tooltip">✕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Interactive Live Bin Simulator
+         ==================================================================== -->
+    <section class="section-padding" id="simulator">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Interactive Waste Stream Lab</span>
+          </div>
+          <h2 class="section-title">Experience the <span class="gradient-text">EcoBin AI Aperture</span> in Action</h2>
+          <p class="section-subtitle">
+            Click on any test waste item below. Watch the sub-second optical scanner analyze the polymer resin or
+            biomass, automatically route to the correct compartment, and log telemetry.
+          </p>
+        </div>
+
+        <div class="simulator-container">
+          <!-- Left: Physical Bin Chamber & Fill Meters -->
+          <div class="sim-station">
+            <div class="sim-hud-header">
+              <div class="sim-station-info">
+                <h3>EcoBin Gen-3 Station #NYC-402</h3>
+                <p>Location: Central Metro Plaza • Off-Grid Solar Mode</p>
+              </div>
+              <div class="sim-telemetry-badge">
+                <span class="badge-pulse-dot"></span>
+                <span>STATUS: SENSORS ARMED</span>
+              </div>
+            </div>
+
+            <!-- Active Scanning Chamber -->
+            <div class="sim-scanner-stage" id="simScannerStage">
+              <div class="scan-laser-beam" aria-hidden="true"></div>
+              <div class="ai-target-reticle" aria-hidden="true"></div>
+
+              <!-- Default Empty State -->
+              <div class="scanner-empty-state" id="scannerEmptyState">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                </svg>
+                <p>Select a waste item on the right to simulate optical intake</p>
+              </div>
+
+              <!-- Active Scanned Item Display -->
+              <div class="scanned-item-display" id="scannedItemDisplay" style="display: none;">
+                <span class="scanned-icon" id="scannedItemIcon">🥤</span>
+                <span style="font-weight: 700; font-size: 1.1rem;" id="scannedItemName">Aluminum Soda Can</span>
+              </div>
+
+              <div class="ai-readout-pill" id="aiReadoutPill">
+                ⚡ Ready for sample deposit
+              </div>
+            </div>
+
+            <!-- 4 Segregated Internal Compartments -->
+            <div class="bin-compartments-grid">
+              <!-- Slot 1: Metals & Plastics -->
+              <div class="bin-slot-card" id="slotCard0">
+                <div class="slot-lid-indicator"></div>
+                <div class="slot-icon">♻️</div>
+                <div class="slot-name">Plastics & Metals</div>
+                <div class="slot-fill-gauge">
+                  <div class="fill-bar" style="width: 34%;"></div>
+                </div>
+                <div class="slot-fill-text">34% Full</div>
+              </div>
+
+              <!-- Slot 2: Glass -->
+              <div class="bin-slot-card" id="slotCard1">
+                <div class="slot-lid-indicator"></div>
+                <div class="slot-icon">🍾</div>
+                <div class="slot-name">Clean Glass</div>
+                <div class="slot-fill-gauge">
+                  <div class="fill-bar" style="width: 48%; background: var(--accent-secondary);"></div>
+                </div>
+                <div class="slot-fill-text">48% Full</div>
+              </div>
+
+              <!-- Slot 3: Compost / Organics -->
+              <div class="bin-slot-card" id="slotCard2">
+                <div class="slot-lid-indicator"></div>
+                <div class="slot-icon">🌿</div>
+                <div class="slot-name">Bio-Compost</div>
+                <div class="slot-fill-gauge">
+                  <div class="fill-bar" style="width: 62%; background: var(--accent-amber);"></div>
+                </div>
+                <div class="slot-fill-text">62% Full</div>
+              </div>
+
+              <!-- Slot 4: E-Waste & Hazardous -->
+              <div class="bin-slot-card" id="slotCard3">
+                <div class="slot-lid-indicator"></div>
+                <div class="slot-icon">🔋</div>
+                <div class="slot-name">E-Waste & Li-Ion</div>
+                <div class="slot-fill-gauge">
+                  <div class="fill-bar" style="width: 18%; background: var(--accent-purple);"></div>
+                </div>
+                <div class="slot-fill-text">18% Full</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Waste Palette & Real-Time Telemetry Terminal -->
+          <div class="sim-controls-panel">
+            <div class="waste-items-palette">
+              <div class="palette-heading">Select Test Waste Article:</div>
+              <div class="waste-item-btn-grid">
+                <button class="waste-select-btn" data-waste="can">
+                  <span class="emoji">🥤</span>
+                  <span>Soda Can<br><small style="color:var(--text-muted)">Alum. Can</small></span>
+                </button>
+
+                <button class="waste-select-btn" data-waste="glass">
+                  <span class="emoji">🍾</span>
+                  <span>Glass Bottle<br><small style="color:var(--text-muted)">Clear Soda-Lime</small></span>
+                </button>
+
+                <button class="waste-select-btn" data-waste="organic">
+                  <span class="emoji">🍌</span>
+                  <span>Fruit Peel<br><small style="color:var(--text-muted)">Food Biomass</small></span>
+                </button>
+
+                <button class="waste-select-btn" data-waste="ewaste">
+                  <span class="emoji">📱</span>
+                  <span>Old Phone<br><small style="color:var(--text-muted)">Li-Ion Battery</small></span>
+                </button>
+
+                <button class="waste-select-btn" data-waste="box">
+                  <span class="emoji">📦</span>
+                  <span>Cardboard<br><small style="color:var(--text-muted)">Corrugated Paper</small></span>
+                </button>
+
+                <button class="waste-select-btn" data-waste="plastic">
+                  <span class="emoji">🥡</span>
+                  <span>Takeout Box<br><small style="color:var(--text-muted)">PP-5 Plastic</small></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Citizen GreenRewards Counter -->
+            <div class="sim-rewards-box">
+              <div class="reward-stat">
+                <span class="reward-value" id="simTotalPoints">145</span>
+                <span class="reward-label">GreenPoints Earned</span>
+              </div>
+              <div class="reward-stat">
+                <span class="reward-value" id="simTotalCarbon">0.38kg</span>
+                <span class="reward-label">CO₂ Sequestered</span>
+              </div>
+              <div class="reward-stat">
+                <span class="reward-value" id="simTotalDeposits">6</span>
+                <span class="reward-label">Items Recycled</span>
+              </div>
+            </div>
+
+            <!-- Live IoT Terminal Log -->
+            <div>
+              <div class="palette-heading" style="margin-bottom: 8px;">Live Sensor Telemetry Log:</div>
+              <div class="sim-terminal-log" id="simTerminalLog">
+                <div class="log-line"><span class="timestamp">[INIT]</span> EcoBin Node #NYC-402 connected via NB-IoT
+                  5G.</div>
+                <div class="log-line"><span class="timestamp">[CALIB]</span> Multi-spectral optical camera calibrated at
+                  60 FPS.</div>
+                <div class="log-line success"><span class="timestamp">[SYSTEM]</span> Ready. Hydraulic compactor status:
+                  Nominal.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Smart City Fleet Telemetry & Dynamic Routing Live Map
+         ==================================================================== -->
+    <section class="section-padding city-fleet-section" id="city-fleet">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Dynamic Route Optimization</span>
+          </div>
+          <h2 class="section-title">Autonomous Smart City <span class="gradient-text">Fleet Telemetry</span></h2>
+          <p class="section-subtitle">
+            Traditional trash trucks follow rigid calendars, wasting fuel collecting half-empty bins while others
+            overflow. EcoPulse™ calculates dynamic routes in real time, dispatching e-trucks only when compaction
+            thresholds demand it.
+          </p>
+        </div>
+
+        <div class="city-fleet-grid">
+          <!-- Canvas Visual Simulation -->
+          <div class="fleet-map-canvas-card">
+            <canvas id="cityMapCanvas"></canvas>
+
+            <!-- Map Controls -->
+            <div class="map-overlay-controls">
+              <button class="btn btn-primary btn-sm btn-glow" id="dispatchTruckBtn">
+                🚚 Dispatch E-Truck (Dynamic TSP)
+              </button>
+              <button class="btn btn-secondary btn-sm" id="rushHourSimBtn">
+                ⚡ Simulate Peak Waste Surge
+              </button>
+            </div>
+
+            <!-- Map Legend -->
+            <div class="map-legend-overlay">
+              <span><span class="legend-dot legend-green"></span> 0-49% (Nominal)</span>
+              <span><span class="legend-dot legend-yellow"></span> 50-79% (Compacting)</span>
+              <span><span class="legend-dot legend-red"></span> 80-100% (Pickup Alert)</span>
+            </div>
+          </div>
+
+          <!-- Fleet Metrics Sidebar -->
+          <div class="fleet-sidebar">
+            <div class="fleet-stat-card">
+              <span class="fleet-stat-title">Fleet Carbon Reduction</span>
+              <span class="fleet-stat-number" style="color: var(--accent-mint);">-68.4%</span>
+              <p style="font-size: 0.8rem;">Saved 1,420 liters of diesel per vehicle every month via predictive routing.
+              </p>
+            </div>
+
+            <div class="fleet-stat-card">
+              <span class="fleet-stat-title">Collection Frequency</span>
+              <span class="fleet-stat-number" style="color: var(--accent-secondary);">1x vs 4x</span>
+              <p style="font-size: 0.8rem;">Hydraulic 5:1 compaction reduces mandatory collection visits by 75%.</p>
+            </div>
+
+            <div class="fleet-stat-card">
+              <span class="fleet-stat-title">Municipal ROI Horizon</span>
+              <span class="fleet-stat-number" style="color: var(--accent-primary);">11.2 Mo</span>
+              <p style="font-size: 0.8rem;">Average payback period across metropolitan pilot deployments.</p>
+            </div>
+
+            <div class="glass-card" style="padding: 18px; margin-top: auto;">
+              <h4 style="font-size: 0.9rem; margin-bottom: 6px; color: var(--accent-mint);">Municipal API Integration
+              </h4>
+              <p style="font-size: 0.8rem;">Direct integration with Cisco Kinetic, Siemens CityAir, and ESRI ArcGIS
+                smart city dashboards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Hardware & AI Technology Deep Dive (Tabs)
+         ==================================================================== -->
+    <section class="section-padding" id="technology">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Engineering Excellence</span>
+          </div>
+          <h2 class="section-title">Engineered for the <span class="gradient-text">Circular Future</span></h2>
+          <p class="section-subtitle">
+            Explore the four pillars of the EcoBin technological stack — from ruggedized hardware to edge neural
+            networks.
+          </p>
+        </div>
+
+        <!-- Tech Navigation Tabs -->
+        <div class="tech-tabs-nav" role="tablist">
+          <button class="tech-tab-btn active" data-tab="tab-hardware" role="tab" aria-selected="true">
+            📦 Smart Station Hardware
+          </button>
+          <button class="tech-tab-btn" data-tab="tab-vision" role="tab" aria-selected="false">
+            👁️ EcoVision™ Optical AI
+          </button>
+          <button class="tech-tab-btn" data-tab="tab-cloud" role="tab" aria-selected="false">
+            ☁️ EcoPulse™ IoT Cloud
+          </button>
+          <button class="tech-tab-btn" data-tab="tab-citizen" role="tab" aria-selected="false">
+            📱 GreenRewards™ App
+          </button>
+        </div>
+
+        <!-- Tab 1: Hardware -->
+        <div class="tab-pane active" id="tab-hardware">
+          <div class="tech-feature-grid">
+            <div class="tech-media-wrap">
+              <img src="assets/images/hero-bin.jpg" alt="EcoBin Hardware Station">
+            </div>
+            <div class="tech-details">
+              <h3>EcoBin One™ Autonomous Station</h3>
+              <p>
+                Crafted from aerospace-grade brushed aluminum and 100% post-consumer ocean plastic composites, the
+                EcoBin One withstands extreme weather conditions from -40°C to +60°C.
+              </p>
+              <div class="spec-list">
+                <div class="spec-card">
+                  <h4>5:1 Self-Compaction</h4>
+                  <p>Hydraulic ram provides 800kg of force to compress cartons, cups, and plastics automatically.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Off-Grid Solar Top</h4>
+                  <p>Monocrystalline photovoltaic cell with 5-day lithium-iron battery backup for 24/7 autonomous
+                    runtime.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Odor & Bacteria Shield</h4>
+                  <p>Automated ozone neutralization & UV-C sanitization triggers after every 10 deposits to kill 99.9%
+                    of bacteria.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Anti-Pest Hermetic Seal</h4>
+                  <p>Electromagnetic motorized flaps prevent rodents, birds, and insects from entering bin chutes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Optical AI -->
+        <div class="tab-pane" id="tab-vision">
+          <div class="tech-feature-grid">
+            <div class="tech-media-wrap">
+              <img src="assets/images/ai-scanner.jpg" alt="EcoVision AI Optical Scanning Chamber">
+            </div>
+            <div class="tech-details">
+              <h3>EcoVision™ Edge Neural Engine</h3>
+              <p>
+                Running locally on low-power edge TPUs, EcoVision analyzes packaging geometry, barcode watermarks, and
+                spectral material reflectance without requiring persistent internet connections.
+              </p>
+              <div class="spec-list">
+                <div class="spec-card">
+                  <h4>280ms Recognition Speed</h4>
+                  <p>Intake shutter opens instantly as soon as valid recyclable or compostable item is presented.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>1,200+ Packaging Models</h4>
+                  <p>Detects resin types (PET-1, HDPE-2, PP-5, PLA bioplastics) and detects non-recyclable
+                    contamination.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Contamination Rejecter</h4>
+                  <p>Detects half-filled soda cups or hazardous chemicals, alerting user before cross-contaminating
+                    clean streams.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Over-the-Air Model Sync</h4>
+                  <p>Learns newly marketed consumer goods packaging weekly through federated edge updates.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Cloud Platform -->
+        <div class="tab-pane" id="tab-cloud">
+          <div class="tech-feature-grid">
+            <div class="tech-media-wrap">
+              <img src="assets/images/smart-city.jpg" alt="EcoPulse Smart City Fleet Telemetry">
+            </div>
+            <div class="tech-details">
+              <h3>EcoPulse™ Fleet Command Cloud</h3>
+              <p>
+                A unified spatial dashboard for municipal directors, waste contractors, and sustainability officers.
+                Monitor every kilogram of diversion, optimize daily driver manifests, and audit ESG compliance.
+              </p>
+              <div class="spec-list">
+                <div class="spec-card">
+                  <h4>Predictive Fill Modeling</h4>
+                  <p>Machine learning anticipates surges during festivals, weekends, and sporting events with 94%
+                    accuracy.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Turn-by-Turn Truck Navigation</h4>
+                  <p>Dispatches optimized routes straight to drivers' ruggedized in-cab tablets via our API.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Automated ESG Audit PDF</h4>
+                  <p>Generates verifiable Scope 1 and Scope 3 carbon reduction certificates for corporate ESG
+                    disclosures.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Battery & Hardware Health</h4>
+                  <p>Continuously audits solar panel output, compactor motor load, and cellular ping latency.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Citizen App -->
+        <div class="tab-pane" id="tab-citizen">
+          <div class="tech-feature-grid">
+            <div class="tech-media-wrap">
+              <img src="assets/images/hero-bin.jpg" alt="Citizen GreenRewards on EcoBin Touchscreen">
+            </div>
+            <div class="tech-details">
+              <h3>GreenRewards™ Citizen Gamification</h3>
+              <p>
+                Drive public participation by turning recycling into a rewarding community habit. Citizens scan the bin
+                QR code, deposit items, and earn instant digital tokens redeemable at local cafes, metro passes, or
+                carbon offsets.
+              </p>
+              <div class="spec-list">
+                <div class="spec-card">
+                  <h4>NFC & Dynamic QR Tap</h4>
+                  <p>Zero friction: tap phone against the bin HUD to sync deposits in under 2 seconds.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Local Business Perks</h4>
+                  <p>Integrates with municipal merchants — $5 off subway fares, free coffee, or community tree planting.
+                  </p>
+                </div>
+                <div class="spec-card">
+                  <h4>Campus Leaderboards</h4>
+                  <p>Create friendly zero-waste competitions between university dorms or corporate office floors.</p>
+                </div>
+                <div class="spec-card">
+                  <h4>Carbon Footprint Journal</h4>
+                  <p>Shows users the tangible impact of their habits: "You saved 14 mature trees this semester."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         AI Vision Material Scanner Live Demo
+         ==================================================================== -->
+    <section class="section-padding ai-scanner-section" id="ai-scanner">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Edge Neural Vision HUD</span>
+          </div>
+          <h2 class="section-title">Optical Material <span class="gradient-text">Classification Engine</span></h2>
+          <p class="section-subtitle">
+            See how the optical camera dissects packaging in real time, detecting polymers, bio-contaminants, and
+            recyclability grades.
+          </p>
+        </div>
+
+        <div class="scanner-interactive-layout">
+          <!-- Camera Feed Simulation with HUD -->
+          <div class="scanner-viewport-box">
+            <img src="assets/images/ai-scanner.jpg" alt="Optical Sorting Camera Viewport">
+
+            <div class="camera-hud-overlay">
+              <div class="hud-top-bar">
+                <span>SENSOR: HYPERSPECTRAL CAM #01</span>
+                <span>FPS: 60 • LATENCY: 12ms</span>
+              </div>
+
+              <!-- Animated Bounding Box -->
+              <div class="hud-bounding-box" id="hudBoundingBox">
+                <span class="hud-box-tag" id="hudBoxTag">PET-01 (Polyethylene Terephthalate)</span>
+              </div>
+
+              <div class="hud-top-bar">
+                <span>CONFIDENCE: <strong style="color:var(--accent-mint)">99.4%</strong></span>
+                <span>STATUS: APERTURE UNLOCKED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls & Real-Time Classification Output -->
+          <div class="scanner-select-panel">
+            <div>
+              <h4 style="margin-bottom: 12px; font-size: 1rem;">Select Test Material Sample:</h4>
+              <div class="sample-pills-row">
+                <button class="sample-pick-btn active" data-sample="pet">🥤 PET Water Bottle</button>
+                <button class="sample-pick-btn" data-sample="banana">🍌 Organic Banana Peel</button>
+                <button class="sample-pick-btn" data-sample="battery">🔋 Li-Ion Phone Battery</button>
+                <button class="sample-pick-btn" data-sample="styro">🥡 Polystyrene Cup</button>
+              </div>
+            </div>
+
+            <div class="ai-classification-card">
+              <div class="classification-row">
+                <span class="classification-label">Material Identification:</span>
+                <span class="classification-val" id="aiClassMaterial">PET-01 (Polyethylene Terephthalate)</span>
+              </div>
+              <div class="classification-row">
+                <span class="classification-label">Confidence Score:</span>
+                <span class="classification-val" id="aiClassConf">99.4%</span>
+              </div>
+              <div class="classification-row">
+                <span class="classification-label">Recyclability Index:</span>
+                <span class="classification-val" id="aiClassGrade" style="color:var(--accent-mint)">A+ Highest
+                  Recyclability</span>
+              </div>
+              <div class="classification-row">
+                <span class="classification-label">Automated Chute Action:</span>
+                <span class="classification-val" id="aiClassAction">Accept Chute #1 (Plastics/Metals)</span>
+              </div>
+              <div class="classification-row">
+                <span class="classification-label">Handling Protocol:</span>
+                <span class="classification-val" id="aiClassTip"
+                  style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">
+                  Remove cap if different resin; rinse residue if containing sugars.
+                </span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary"
+              onclick="showToast('📸 Custom image upload feature is available in the Enterprise developer SDK sandbox.')">
+              Upload Custom Waste Image for Evaluation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Interactive ROI & ESG Impact Calculator
+         ==================================================================== -->
+    <section class="section-padding" id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Financial & Ecological Returns</span>
+          </div>
+          <h2 class="section-title">Calculate Your <span class="gradient-text">Municipal or Corporate ROI</span></h2>
+          <p class="section-subtitle">
+            Adjust the sliders to reflect your municipality, university, or corporate facility waste footprint. See
+            immediate projections for hauling cost reductions and carbon abatement.
+          </p>
+        </div>
+
+        <div class="calc-card-container">
+          <!-- Slider Inputs -->
+          <div class="calc-inputs">
+            <div class="calc-group">
+              <div class="calc-header-row">
+                <label for="sliderBinCount" class="calc-label">Deployment Scope (Smart Bins)</label>
+                <span class="calc-value-badge" id="calcBinValue">30 Bins</span>
+              </div>
+              <input type="range" min="5" max="300" step="5" value="30" class="eco-slider" id="sliderBinCount">
+            </div>
+
+            <div class="calc-group">
+              <div class="calc-header-row">
+                <label for="sliderCurrentSpend" class="calc-label">Current Monthly Waste Hauling Spend</label>
+                <span class="calc-value-badge" id="calcSpendValue">$12,000/mo</span>
+              </div>
+              <input type="range" min="2000" max="80000" step="1000" value="12000" class="eco-slider"
+                id="sliderCurrentSpend">
+            </div>
+
+            <div class="calc-group">
+              <div class="calc-header-row">
+                <label for="sliderDiversionRate" class="calc-label">Current Landfill Diversion Rate</label>
+                <span class="calc-value-badge" id="calcDiversionValue">35%</span>
+              </div>
+              <input type="range" min="10" max="75" step="5" value="35" class="eco-slider" id="sliderDiversionRate">
+            </div>
+
+            <div
+              style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-top: 10px;">
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                💡 <strong>Methodology Note:</strong> Calculations assume average 5:1 hydraulic compaction density and
+                dynamic route pruning derived from 40+ deployed city pilots.
+              </p>
+            </div>
+          </div>
+
+          <!-- Dynamic Results Panel -->
+          <div class="calc-results-panel">
+            <div class="calc-metrics-grid">
+              <div class="calc-res-item">
+                <span class="calc-res-title">Annual Cost Savings</span>
+                <span class="calc-res-number" id="resAnnualSavings">$83,520</span>
+                <span class="calc-res-sub">Reduced hauling & tip fees</span>
+              </div>
+
+              <div class="calc-res-item">
+                <span class="calc-res-title">CO₂e Abated / Year</span>
+                <span class="calc-res-number" id="resCo2Diverted">74 MT</span>
+                <span class="calc-res-sub">Scope 1 & Scope 3 savings</span>
+              </div>
+
+              <div class="calc-res-item">
+                <span class="calc-res-title">Truck Pickups Eliminated</span>
+                <span class="calc-res-number" id="resTripsSaved">3,120</span>
+                <span class="calc-res-sub">Fewer collection runs</span>
+              </div>
+
+              <div class="calc-res-item">
+                <span class="calc-res-title">Payback Period</span>
+                <span class="calc-res-number" id="resPayback">10 Mo.</span>
+                <span class="calc-res-sub">Rapid capital amortisation</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
+              <button class="btn btn-primary btn-glow" id="generateEsgReportBtn" style="flex: 1;">
+                📄 Generate ESG Executive Report
+              </button>
+              <button class="btn btn-secondary" data-open-modal="pilotModal">
+                Lock in Guaranteed Pilot
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Solutions by Industry Sector
+         ==================================================================== -->
+    <section class="section-padding" id="solutions">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Tailored Deployments</span>
+          </div>
+          <h2 class="section-title">Built for Every <span class="gradient-text">Urban Environment</span></h2>
+          <p class="section-subtitle">
+            From bustling city streetscapes to private hospital campuses, EcoBin configures seamlessly to local sorting
+            regulations.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Card 1: Municipalities -->
+          <div class="glass-card solution-card">
+            <div class="solution-icon-wrap">🏙️</div>
+            <h3>Smart Cities & Mayors</h3>
+            <p>
+              Transform street sanitation. Eliminate public bin overflows, rodent infestations, and slash municipal
+              collection vehicle traffic.
+            </p>
+            <div class="solution-metrics-pill">Avg: -72% Public Litter Complaints</div>
+          </div>
+
+          <!-- Card 2: Corporate Campuses -->
+          <div class="glass-card solution-card">
+            <div class="solution-icon-wrap">🏢</div>
+            <h3>Corporate HQs & Tech Parks</h3>
+            <p>
+              Attain TRUE Zero Waste & LEED Platinum certifications. Provide tenants with automated cafeteria waste
+              sorting and verifiable ESG disclosure data.
+            </p>
+            <div class="solution-metrics-pill">Avg: 96% Diversion Rate Achieved</div>
+          </div>
+
+          <!-- Card 3: Universities -->
+          <div class="glass-card solution-card">
+            <div class="solution-icon-wrap">🎓</div>
+            <h3>Universities & Colleges</h3>
+            <p>
+              Engage Gen Z students with gamified GreenRewards. Track dorm sustainability challenges and promote
+              closed-loop composting for dining halls.
+            </p>
+            <div class="solution-metrics-pill">Avg: 88,000+ Student Interactions</div>
+          </div>
+
+          <!-- Card 4: Airports & Stadiums -->
+          <div class="glass-card solution-card">
+            <div class="solution-icon-wrap">✈️</div>
+            <h3>Airports & Arenas</h3>
+            <p>
+              High-volume crowds require high-volume compaction. Keep concourses spotless during massive passenger
+              surges without expanding custodial headcount.
+            </p>
+            <div class="solution-metrics-pill">Avg: 5x Waste Capacity per Sq. Ft.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Transparent Pilot Programs & Pricing
+         ==================================================================== -->
+    <section class="section-padding" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Risk-Free Deployment</span>
+          </div>
+          <h2 class="section-title">Transparent <span class="gradient-text">Pilot Programs</span></h2>
+          <p class="section-subtitle">
+            Validate EcoBin's 68% collection cost savings with zero long-term municipal commitment.
+          </p>
+        </div>
+
+        <div class="pilot-plans-grid">
+          <!-- Plan 1 -->
+          <div class="plan-card">
+            <div>
+              <h3 style="font-size: 1.4rem;">Evaluation Pilot</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Ideal for university campuses or
+                central plazas.</p>
+            </div>
+            <div class="plan-price">
+              <span class="amount">$499</span>
+              <span class="period">/ bin / mo</span>
+            </div>
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>5 to 15 EcoBin One™ Smart Stations</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>EcoVision™ Optical AI enabled</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Basic EcoPulse Cloud Telemetry</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>90-Day Satisfaction Warranty</span>
+              </li>
+            </ul>
+            <button class="btn btn-secondary" style="margin-top: auto;" data-open-modal="pilotModal">
+              Start 90-Day Pilot
+            </button>
+          </div>
+
+          <!-- Plan 2 (Featured) -->
+          <div class="plan-card featured">
+            <div class="featured-ribbon">Most Popular</div>
+            <div>
+              <h3 style="font-size: 1.4rem; color: var(--accent-mint);">Commercial District</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">For business improvement
+                districts & transit hubs.</p>
+            </div>
+            <div class="plan-price">
+              <span class="amount">$389</span>
+              <span class="period">/ bin / mo</span>
+            </div>
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>20 to 100 Connected Stations</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Dynamic Fleet Truck Routing Engine</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Citizen GreenRewards™ Integration</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Quarterly ESG & Carbon Audit Certification</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Dedicated Success Manager & 24/7 SLA</span>
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-glow" style="margin-top: auto;" data-open-modal="pilotModal">
+              Deploy Commercial Fleet
+            </button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="plan-card">
+            <div>
+              <h3 style="font-size: 1.4rem;">Smart Metropolis</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">City-wide municipal
+                zero-landfill infrastructure.</p>
+            </div>
+            <div class="plan-price">
+              <span class="amount">Custom</span>
+              <span class="period">/ RFP Quote</span>
+            </div>
+            <ul class="plan-features-list">
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>100+ Custom Branded Stations</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Municipal REST API & ArcGIS Integration</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Autonomous EV Collection Truck Dispatch</span>
+              </li>
+              <li class="plan-feature-item">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span>Custom Government Financing & Bond Models</span>
+              </li>
+            </ul>
+            <button class="btn btn-secondary" style="margin-top: auto;" data-open-modal="pilotModal">
+              Contact Municipal Team
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Interactive FAQ Section
+         ==================================================================== -->
+    <section class="section-padding" id="faq">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Clarifications & Guidance</span>
+          </div>
+          <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+          <p class="section-subtitle">
+            Find fast answers on battery longevity, extreme winter durability, and sorting accuracy.
+          </p>
+        </div>
+
+        <!-- Real-time Filter Search Box -->
+        <div class="faq-search-wrap">
+          <svg class="faq-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="faq-search-input" id="faqSearchInput"
+            placeholder="Search questions (e.g. solar, battery, compaction)...">
+        </div>
+
+        <div class="faq-accordion-list" id="faqAccordionList">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button class="faq-question-btn">
+              <span>How does EcoBin operate during prolonged cloudy days or winter snow?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="faq-answer-content">
+              <p>
+                Each EcoBin One integrates an aerospace-grade monocrystalline solar roof paired with a high-capacity
+                LiFePO4 battery pack designed to retain 120 hours (5 full days) of operational reserve. Furthermore, our
+                edge AI hardware operates in ultra-low power standby (0.4W) between user interactions.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>What prevents odors, bees, and rodents around the bin?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="faq-answer-content">
+              <p>
+                EcoBin features hermetically sealed magnetic chute flaps that block all external access. After waste is
+                deposited, an internal chamber misting mechanism distributes a 100% bio-based enzymatic odor neutralizer
+                alongside an automated UV-C sterilization cycle.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>What happens if someone throws in an unidentifiable or dirty item?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="faq-answer-content">
+              <p>
+                Our optical sensor classifies items into four categories: recyclables, compost, e-waste, and general
+                landfill residue. If an item cannot be definitively identified or contains high food contamination, the
+                bin gracefully defaults to the non-recyclable residual compartment, preventing cross-contamination of
+                clean recyclable feedstock.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>How does the dynamic collection route integration work with our existing trucks?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="faq-answer-content">
+              <p>
+                No special trucks are required! EcoPulse Cloud generates dynamic daily routes exported directly as
+                GPX/KML turn-by-turn navigation sent to your existing driver tablets or smartphones. The software
+                ensures drivers only visit bins that are 80%+ full.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Is citizen data collected or private during recycling rewards?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="faq-answer-content">
+              <p>
+                Strictly privacy-preserving: EcoBin does not store facial images. Optical sensors face downward into the
+                sorting tray only. The GreenRewards app uses zero-knowledge cryptography to award reward tokens without
+                tracking personal biometric profiles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       Footer
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-symbol">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+              </svg>
+            </div>
+            <span>EcoBin</span>
+          </div>
+          <p>
+            Pioneering autonomous waste management infrastructure, AI edge sorting, and circular zero-waste economy
+            solutions for cities and enterprises worldwide.
+          </p>
+          <div
+            style="display: flex; gap: 8px; align-items: center; font-size: 0.8rem; color: var(--accent-mint); font-family: var(--font-mono);">
+            <span class="badge-pulse-dot"></span>
+            <span>SYSTEM STATUS: ALL IoT NODES OPERATIONAL (99.98%)</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Technology</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#simulator">EcoBin One™ Station</a></li>
+            <li><a href="#technology">EcoVision Optical AI</a></li>
+            <li><a href="#city-fleet">EcoPulse Fleet Cloud</a></li>
+            <li><a href="#technology">GreenRewards Token</a></li>
+            <li><a href="#calculator">ESG Impact Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Sectors</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#solutions">Smart Cities & Municipalities</a></li>
+            <li><a href="#solutions">Corporate Campuses</a></li>
+            <li><a href="#solutions">Universities & Colleges</a></li>
+            <li><a href="#solutions">Airports & Transit Hubs</a></li>
+            <li><a href="#pricing">Pilot Deployment Program</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Connected</h4>
+          <p style="font-size: 0.85rem; color: #9cb3a8;">
+            Subscribe to our quarterly Circular Dispatches for municipal case studies and waste-tech insights.
+          </p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Your work email..." required>
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 EcoBin Technologies Inc. All rights reserved. • ISO 14001 & LEED Accredited.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#hero">Privacy Policy</a>
+          <a href="#hero">Terms of Service</a>
+          <a href="#hero">Carbon Neutrality Pledge</a>
+          <a href="#hero">Security & GDPR</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       Modals (Pilot Request & ESG Summary)
+       ==================================================================== -->
+  <!-- Pilot Request Modal -->
+  <div class="modal-overlay" id="pilotModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="badge-pill" style="margin-bottom: 10px;">
+        <span>Municipal & Enterprise Pilot</span>
+      </div>
+      <h3 id="modalTitle" style="font-size: 1.6rem;">Schedule Your 90-Day <span class="gradient-text">EcoBin
+          Pilot</span></h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px;">
+        Fill out your organization details. Our deployment engineering team will provide a tailored hardware placement
+        roadmap and hauling cost audit.
+      </p>
+
+      <form class="modal-form" id="pilotBookingForm">
+        <div class="form-group">
+          <label for="pilotOrg">Organization / City Name</label>
+          <input type="text" id="pilotOrg" class="form-input" placeholder="e.g. City of Austin or Stanford University"
+            required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label for="pilotName">Lead Contact Name</label>
+            <input type="text" id="pilotName" class="form-input" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="pilotEmail">Official Email</label>
+            <input type="email" id="pilotEmail" class="form-input" placeholder="jane@city.gov" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label for="pilotBinCount">Estimated Bins Needed</label>
+            <select id="pilotBinCount" class="form-select">
+              <option value="5-15">5 - 15 Bins (Starter Evaluation)</option>
+              <option value="20-50">20 - 50 Bins (District Pilot)</option>
+              <option value="50-200">50 - 200 Bins (Full Campus/City)</option>
+              <option value="200+">200+ Bins (Metropolitan Infrastructure)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pilotSector">Sector Category</label>
+            <select id="pilotSector" class="form-select">
+              <option value="municipality">Municipality / Public Works</option>
+              <option value="university">University / Higher Education</option>
+              <option value="corporate">Corporate Office / Tech Campus</option>
+              <option value="airport">Airport / Transit Authority</option>
+              <option value="stadium">Sports Stadium / Entertainment</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pilotNotes">Special Requirements or Waste Pain Points</label>
+          <textarea id="pilotNotes" class="form-textarea" rows="3"
+            placeholder="Tell us about existing waste collection frequency, overflow issues, or sorting goals..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-glow" style="width: 100%; margin-top: 8px;">
+          Submit Pilot Consultation Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ESG Report Modal -->
+  <div class="modal-overlay" id="esgReportModal" role="dialog" aria-modal="true" aria-labelledby="esgModalTitle">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <h3 id="esgModalTitle" style="font-size: 1.6rem;">EcoBin™ Executive <span class="gradient-text">ESG Impact
+          Model</span></h3>
+      <div id="esgModalContent" style="margin-top: 16px;">
+        <!-- Filled dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
