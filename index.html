@@ -79,6 +79,8 @@
           <li><a href="#solutions" class="nav-link">Solutions</a></li>
           <li><a href="#pricing" class="nav-link">Pilot Programs</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#order" class="nav-link nav-link-highlight">Order</a></li>
+          <li><a href="#feedback" class="nav-link">Feedback</a></li>
         </ul>
       </nav>
 
@@ -1146,6 +1148,201 @@
         </div>
       </div>
     </section>
+
+    <!-- ====================================================================
+         Order Section
+         ==================================================================== -->
+    <section class="section-padding order-section" id="order">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Direct Purchase</span>
+          </div>
+          <h2 class="section-title">Order Your <span class="gradient-text">EcoBin Product</span></h2>
+          <p class="section-subtitle">
+            Choose the plan that fits your needs, set your quantity, and complete your details. We'll confirm your order within 24 hours.
+          </p>
+        </div>
+
+        <!-- Order form view -->
+        <div class="order-wrapper" id="orderFormView">
+          <!-- Step 1: Plan Cards -->
+          <div class="order-plan-grid">
+
+            <!-- Plan: Home EcoBin -->
+            <label class="order-plan-card" id="planCardHome">
+              <input type="radio" name="orderPlan" value="home" class="order-radio" id="planHome" checked>
+              <div class="order-plan-inner">
+                <div class="order-plan-icon">🏠</div>
+                <h3 class="order-plan-name">Home EcoBin</h3>
+                <div class="order-plan-price">$299 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">Compact solar-powered smart bin for households. Fits under kitchen counters, auto-compacts, and alerts you when full.</p>
+                <ul class="order-plan-perks">
+                  <li>✔ 30-litre AI-sorted capacity</li>
+                  <li>✔ NFC GreenRewards tap</li>
+                  <li>✔ 1-year warranty</li>
+                </ul>
+              </div>
+            </label>
+
+            <!-- Plan: Campus EcoBin -->
+            <label class="order-plan-card order-plan-featured" id="planCardCampus">
+              <div class="featured-ribbon">Most Popular</div>
+              <input type="radio" name="orderPlan" value="campus" class="order-radio" id="planCampus">
+              <div class="order-plan-inner">
+                <div class="order-plan-icon">🎓</div>
+                <h3 class="order-plan-name" style="color:var(--accent-mint)">Campus EcoBin</h3>
+                <div class="order-plan-price">$799 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">High-volume outdoor station built for universities, parks, and corporate campuses. 5:1 hydraulic compaction.</p>
+                <ul class="order-plan-perks">
+                  <li>✔ 120-litre 4-stream station</li>
+                  <li>✔ Full EcoVision™ optical AI</li>
+                  <li>✔ EcoPulse™ cloud dashboard</li>
+                  <li>✔ 2-year on-site warranty</li>
+                </ul>
+              </div>
+            </label>
+
+            <!-- Plan: Sensor Kit -->
+            <label class="order-plan-card" id="planCardSensor">
+              <input type="radio" name="orderPlan" value="sensor" class="order-radio" id="planSensor">
+              <div class="order-plan-inner">
+                <div class="order-plan-icon">📡</div>
+                <h3 class="order-plan-name">Sensor Kit</h3>
+                <div class="order-plan-price">$149 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">Retrofit IoT sensor module for existing bins. Adds fill-level telemetry, NB-IoT connectivity, and cloud integration.</p>
+                <ul class="order-plan-perks">
+                  <li>✔ NB-IoT 5G connectivity</li>
+                  <li>✔ 3-year battery life</li>
+                  <li>✔ Universal bin mount</li>
+                </ul>
+              </div>
+            </label>
+
+          </div>
+
+          <!-- Step 2: Quantity + Contact Details -->
+          <div class="order-form-card">
+            <h3 class="order-form-heading">Your Details</h3>
+            <form id="orderForm" class="order-details-form" novalidate>
+
+              <div class="order-qty-row">
+                <label for="orderQty" class="form-label-sm">Quantity</label>
+                <div class="order-qty-stepper">
+                  <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
+                  <input type="number" id="orderQty" class="qty-input" value="1" min="1" max="999" readonly>
+                  <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+                </div>
+                <div class="order-total-badge" id="orderTotalBadge">Total: $299</div>
+              </div>
+
+              <div class="order-fields-grid">
+                <div class="form-group">
+                  <label for="orderName">Full Name <span class="required-star">*</span></label>
+                  <input type="text" id="orderName" class="form-input" placeholder="Jane Smith" required>
+                </div>
+                <div class="form-group">
+                  <label for="orderContact">Phone / Email <span class="required-star">*</span></label>
+                  <input type="text" id="orderContact" class="form-input" placeholder="+1 555-0100 or jane@email.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="orderAddress">Delivery Address <span class="required-star">*</span></label>
+                <textarea id="orderAddress" class="form-textarea" rows="3" placeholder="Street, City, State, ZIP / Postcode, Country" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-glow order-submit-btn" id="orderSubmitBtn">
+                🛒 Place Order
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Order success view -->
+        <div class="order-success-view" id="orderSuccessView" style="display:none;" aria-live="polite">
+          <div class="success-icon-ring">✅</div>
+          <h3 class="success-heading">Order Received!</h3>
+          <p class="success-body" id="orderSuccessMsg">Thank you! We'll reach out within 24 hours to confirm your order and arrange delivery.</p>
+          <button class="btn btn-secondary" id="orderResetBtn">Place Another Order</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Feedback Section
+         ==================================================================== -->
+    <section class="section-padding feedback-section" id="feedback">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span>Your Voice Matters</span>
+          </div>
+          <h2 class="section-title">Share Your <span class="gradient-text">Feedback</span></h2>
+          <p class="section-subtitle">
+            Help us improve EcoBin. Every rating and comment goes directly to our engineering and operations teams.
+          </p>
+        </div>
+
+        <!-- Feedback form view -->
+        <div class="feedback-card" id="feedbackFormView">
+          <form id="feedbackForm" novalidate>
+
+            <!-- Star Rating -->
+            <div class="form-group">
+              <label class="form-label-sm">Overall Rating <span class="required-star">*</span></label>
+              <div class="star-rating-row" id="starRatingRow" role="group" aria-label="Rate from 1 to 5 stars">
+                <button type="button" class="star-btn" data-star="1" aria-label="1 star">★</button>
+                <button type="button" class="star-btn" data-star="2" aria-label="2 stars">★</button>
+                <button type="button" class="star-btn" data-star="3" aria-label="3 stars">★</button>
+                <button type="button" class="star-btn" data-star="4" aria-label="4 stars">★</button>
+                <button type="button" class="star-btn" data-star="5" aria-label="5 stars">★</button>
+              </div>
+              <input type="hidden" id="feedbackStarValue" value="0">
+            </div>
+
+            <!-- Topic -->
+            <div class="form-group">
+              <label for="feedbackTopic">Topic <span class="required-star">*</span></label>
+              <div class="feedback-topic-pills" id="feedbackTopicPills">
+                <button type="button" class="topic-pill" data-topic="Bin">🗑️ Bin</button>
+                <button type="button" class="topic-pill" data-topic="Pickup">🚚 Pickup</button>
+                <button type="button" class="topic-pill" data-topic="Website">🌐 Website</button>
+                <button type="button" class="topic-pill" data-topic="Other">💬 Other</button>
+              </div>
+              <input type="hidden" id="feedbackTopicValue" value="">
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="feedbackMessage">Your Message <span class="required-star">*</span></label>
+              <textarea id="feedbackMessage" class="form-textarea" rows="4" placeholder="Tell us what you think — the good, the bad, and the ideas…" required></textarea>
+            </div>
+
+            <!-- Optional Email -->
+            <div class="form-group">
+              <label for="feedbackEmail">Email <span class="optional-tag">(optional — we'll reply if you'd like)</span></label>
+              <input type="email" id="feedbackEmail" class="form-input" placeholder="you@example.com">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-glow" style="width:100%;" id="feedbackSubmitBtn">
+              💬 Submit Feedback
+            </button>
+          </form>
+        </div>
+
+        <!-- Feedback success view -->
+        <div class="feedback-success-view" id="feedbackSuccessView" style="display:none;" aria-live="polite">
+          <div class="success-icon-ring">🙏</div>
+          <h3 class="success-heading">Thank You!</h3>
+          <p class="success-body">Your feedback has been received. We genuinely read every submission and use it to improve EcoBin for everyone.</p>
+          <button class="btn btn-secondary" id="feedbackResetBtn">Submit More Feedback</button>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ====================================================================
@@ -1194,6 +1391,8 @@
             <li><a href="#solutions">Universities & Colleges</a></li>
             <li><a href="#solutions">Airports & Transit Hubs</a></li>
             <li><a href="#pricing">Pilot Deployment Program</a></li>
+            <li><a href="#order">Order a Product</a></li>
+            <li><a href="#feedback">Submit Feedback</a></li>
           </ul>
         </div>
 

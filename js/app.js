@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initModals();
   initNewsletter();
+  initOrder();
+  initFeedback();
 });
 
 /* ==========================================================================
@@ -898,4 +900,209 @@ function showToast(message) {
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 4000);
+}
+
+/* ==========================================================================
+   Order Section
+   ========================================================================== */
+function initOrder() {
+  const planPrices = { home: 299, campus: 799, sensor: 149 };
+  const planNames  = { home: 'Home EcoBin', campus: 'Campus EcoBin', sensor: 'Sensor Kit' };
+
+  const planCards  = document.querySelectorAll('.order-plan-card');
+  const radios     = document.querySelectorAll('.order-radio');
+  const qtyInput   = document.getElementById('orderQty');
+  const totalBadge = document.getElementById('orderTotalBadge');
+  const qtyMinus   = document.getElementById('qtyMinus');
+  const qtyPlus    = document.getElementById('qtyPlus');
+  const orderForm  = document.getElementById('orderForm');
+  const formView   = document.getElementById('orderFormView');
+  const successView= document.getElementById('orderSuccessView');
+  const successMsg = document.getElementById('orderSuccessMsg');
+  const resetBtn   = document.getElementById('orderResetBtn');
+
+  if (!orderForm) return;
+
+  let currentPlan = 'home';
+  let qty = 1;
+
+  function getPrice() { return planPrices[currentPlan] || 0; }
+  function updateTotal() {
+    const total = getPrice() * qty;
+    if (totalBadge) totalBadge.textContent = `Total: $${total.toLocaleString()}`;
+  }
+
+  // Plan card selection
+  planCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const radio = card.querySelector('.order-radio');
+      if (!radio) return;
+      radios.forEach(r => r.checked = false);
+      radio.checked = true;
+      currentPlan = radio.value;
+      planCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      updateTotal();
+    });
+  });
+
+  // Set initial selected state
+  planCards.forEach(card => {
+    const radio = card.querySelector('.order-radio');
+    if (radio && radio.checked) {
+      card.classList.add('selected');
+      currentPlan = radio.value;
+    }
+  });
+  updateTotal();
+
+  // Quantity stepper
+  if (qtyMinus) {
+    qtyMinus.addEventListener('click', () => {
+      qty = Math.max(1, qty - 1);
+      if (qtyInput) qtyInput.value = qty;
+      updateTotal();
+    });
+  }
+  if (qtyPlus) {
+    qtyPlus.addEventListener('click', () => {
+      qty = Math.min(999, qty + 1);
+      if (qtyInput) qtyInput.value = qty;
+      updateTotal();
+    });
+  }
+
+  // Form submit
+  orderForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name    = document.getElementById('orderName');
+    const contact = document.getElementById('orderContact');
+    const address = document.getElementById('orderAddress');
+
+    if (!name.value.trim() || !contact.value.trim() || !address.value.trim()) {
+      showToast('⚠️ Please fill in all required fields.');
+      return;
+    }
+
+    const total = getPrice() * qty;
+    if (successMsg) {
+      successMsg.textContent =
+        `Thank you, ${name.value.trim()}! Your order of ${qty}× ${planNames[currentPlan]} ` +
+        `($${total.toLocaleString()} total) has been received. ` +
+        `We'll reach out to ${contact.value.trim()} within 24 hours to confirm and arrange delivery.`;
+    }
+
+    if (formView)    formView.style.display   = 'none';
+    if (successView) successView.style.display = 'flex';
+    showToast('🎉 Order placed successfully!');
+  });
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      orderForm.reset();
+      qty = 1;
+      if (qtyInput) qtyInput.value = 1;
+      planCards.forEach(c => c.classList.remove('selected'));
+      const firstRadio = document.querySelector('.order-radio');
+      if (firstRadio) {
+        firstRadio.checked = true;
+        currentPlan = firstRadio.value;
+        const firstCard = firstRadio.closest('.order-plan-card');
+        if (firstCard) firstCard.classList.add('selected');
+      }
+      updateTotal();
+      if (formView)    formView.style.display    = 'block';
+      if (successView) successView.style.display  = 'none';
+    });
+  }
+}
+
+/* ==========================================================================
+   Feedback Section
+   ========================================================================== */
+function initFeedback() {
+  const starBtns       = document.querySelectorAll('.star-btn');
+  const starHiddenInput= document.getElementById('feedbackStarValue');
+  const topicPills     = document.querySelectorAll('.topic-pill');
+  const topicHidden    = document.getElementById('feedbackTopicValue');
+  const feedbackForm   = document.getElementById('feedbackForm');
+  const formView       = document.getElementById('feedbackFormView');
+  const successView    = document.getElementById('feedbackSuccessView');
+  const resetBtn       = document.getElementById('feedbackResetBtn');
+
+  if (!feedbackForm) return;
+
+  let selectedStar  = 0;
+  let selectedTopic = '';
+
+  // Star rating — hover + click
+  starBtns.forEach(btn => {
+    btn.addEventListener('mouseover', () => {
+      const hovered = parseInt(btn.dataset.star);
+      starBtns.forEach(b => {
+        b.classList.toggle('hovered', parseInt(b.dataset.star) <= hovered);
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      starBtns.forEach(b => b.classList.remove('hovered'));
+    });
+
+    btn.addEventListener('click', () => {
+      selectedStar = parseInt(btn.dataset.star);
+      if (starHiddenInput) starHiddenInput.value = selectedStar;
+      starBtns.forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.star) <= selectedStar);
+      });
+    });
+  });
+
+  // Topic pills
+  topicPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      topicPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      selectedTopic = pill.dataset.topic;
+      if (topicHidden) topicHidden.value = selectedTopic;
+    });
+  });
+
+  // Form submit
+  feedbackForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const message = document.getElementById('feedbackMessage');
+
+    if (selectedStar === 0) {
+      showToast('⭐ Please select a star rating.');
+      return;
+    }
+    if (!selectedTopic) {
+      showToast('📌 Please choose a topic.');
+      return;
+    }
+    if (!message.value.trim()) {
+      showToast('✏️ Please write a message.');
+      return;
+    }
+
+    if (formView)    formView.style.display   = 'none';
+    if (successView) successView.style.display = 'flex';
+    showToast('💚 Feedback submitted — thank you!');
+  });
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      feedbackForm.reset();
+      selectedStar  = 0;
+      selectedTopic = '';
+      if (starHiddenInput) starHiddenInput.value = 0;
+      if (topicHidden)     topicHidden.value = '';
+      starBtns.forEach(b  => b.classList.remove('active', 'hovered'));
+      topicPills.forEach(p => p.classList.remove('active'));
+      if (formView)    formView.style.display    = 'block';
+      if (successView) successView.style.display  = 'none';
+    });
+  }
 }
