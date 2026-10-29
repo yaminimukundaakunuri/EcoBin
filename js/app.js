@@ -906,8 +906,8 @@ function showToast(message) {
    Order Section
    ========================================================================== */
 function initOrder() {
-  const planPrices = { home: 299, campus: 799, sensor: 149 };
-  const planNames  = { home: 'Home EcoBin', campus: 'Campus EcoBin', sensor: 'Sensor Kit' };
+  const planPrices = { home: 299, smart: 599, community: 999 };
+  const planNames  = { home: 'Home EcoBin', smart: 'Smart EcoBin', community: 'Community EcoBin' };
 
   const planCards  = document.querySelectorAll('.order-plan-card');
   const radios     = document.querySelectorAll('.order-radio');
@@ -919,6 +919,7 @@ function initOrder() {
   const formView   = document.getElementById('orderFormView');
   const successView= document.getElementById('orderSuccessView');
   const successMsg = document.getElementById('orderSuccessMsg');
+  const orderIdDisplay = document.getElementById('orderIdDisplay');
   const resetBtn   = document.getElementById('orderResetBtn');
 
   if (!orderForm) return;
@@ -929,7 +930,13 @@ function initOrder() {
   function getPrice() { return planPrices[currentPlan] || 0; }
   function updateTotal() {
     const total = getPrice() * qty;
-    if (totalBadge) totalBadge.textContent = `Total: $${total.toLocaleString()}`;
+    if (totalBadge) totalBadge.textContent = 'Total: ₹' + total.toLocaleString('en-IN');
+  }
+
+  function generateOrderId() {
+    const ts   = Date.now().toString(36).toUpperCase();
+    const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+    return 'ECB-' + ts + '-' + rand;
   }
 
   // Plan card selection
@@ -975,26 +982,50 @@ function initOrder() {
   // Form submit
   orderForm.addEventListener('submit', e => {
     e.preventDefault();
-    const name    = document.getElementById('orderName');
-    const contact = document.getElementById('orderContact');
-    const address = document.getElementById('orderAddress');
+    const nameEl    = document.getElementById('orderName');
+    const phoneEl   = document.getElementById('orderPhone');
+    const addressEl = document.getElementById('orderAddress');
 
-    if (!name.value.trim() || !contact.value.trim() || !address.value.trim()) {
-      showToast('⚠️ Please fill in all required fields.');
+    if (!nameEl.value.trim()) {
+      showToast('⚠️ Please enter your full name.');
+      nameEl.focus();
+      return;
+    }
+    if (!phoneEl.value.trim()) {
+      showToast('⚠️ Please enter your phone number.');
+      phoneEl.focus();
+      return;
+    }
+    const phoneDigits = phoneEl.value.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      showToast('⚠️ Phone number must be exactly 10 digits.');
+      phoneEl.focus();
+      return;
+    }
+    if (!addressEl.value.trim()) {
+      showToast('⚠️ Please enter your delivery address.');
+      addressEl.focus();
       return;
     }
 
-    const total = getPrice() * qty;
+    const total   = getPrice() * qty;
+    const orderId = generateOrderId();
+
     if (successMsg) {
       successMsg.textContent =
-        `Thank you, ${name.value.trim()}! Your order of ${qty}× ${planNames[currentPlan]} ` +
-        `($${total.toLocaleString()} total) has been received. ` +
-        `We'll reach out to ${contact.value.trim()} within 24 hours to confirm and arrange delivery.`;
+        'Thank you, ' + nameEl.value.trim() + '! Your order of ' + qty +
+        '× ' + planNames[currentPlan] +
+        ' (₹' + total.toLocaleString('en-IN') + ' total) has been confirmed. ' +
+        "We'll contact you on " + phoneDigits + ' within 24 hours to arrange delivery.';
+    }
+    if (orderIdDisplay) {
+      orderIdDisplay.textContent = 'Order ID: ' + orderId;
     }
 
     if (formView)    formView.style.display   = 'none';
     if (successView) successView.style.display = 'flex';
-    showToast('🎉 Order placed successfully!');
+    ecoSound.playSuccess();
+    showToast('🎉 Order ' + orderId + ' placed successfully!');
   });
 
   // Reset
@@ -1012,6 +1043,7 @@ function initOrder() {
         if (firstCard) firstCard.classList.add('selected');
       }
       updateTotal();
+      if (orderIdDisplay) orderIdDisplay.textContent = '';
       if (formView)    formView.style.display    = 'block';
       if (successView) successView.style.display  = 'none';
     });
@@ -1022,19 +1054,17 @@ function initOrder() {
    Feedback Section
    ========================================================================== */
 function initFeedback() {
-  const starBtns       = document.querySelectorAll('.star-btn');
-  const starHiddenInput= document.getElementById('feedbackStarValue');
-  const topicPills     = document.querySelectorAll('.topic-pill');
-  const topicHidden    = document.getElementById('feedbackTopicValue');
-  const feedbackForm   = document.getElementById('feedbackForm');
-  const formView       = document.getElementById('feedbackFormView');
-  const successView    = document.getElementById('feedbackSuccessView');
-  const resetBtn       = document.getElementById('feedbackResetBtn');
+  const starBtns        = document.querySelectorAll('.star-btn');
+  const starHiddenInput = document.getElementById('feedbackStarValue');
+  const feedbackForm    = document.getElementById('feedbackForm');
+  const formView        = document.getElementById('feedbackFormView');
+  const successView     = document.getElementById('feedbackSuccessView');
+  const successBody     = document.getElementById('feedbackSuccessBody');
+  const resetBtn        = document.getElementById('feedbackResetBtn');
 
   if (!feedbackForm) return;
 
-  let selectedStar  = 0;
-  let selectedTopic = '';
+  let selectedStar = 0;
 
   // Star rating — hover + click
   starBtns.forEach(btn => {
@@ -1058,36 +1088,44 @@ function initFeedback() {
     });
   });
 
-  // Topic pills
-  topicPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      topicPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      selectedTopic = pill.dataset.topic;
-      if (topicHidden) topicHidden.value = selectedTopic;
-    });
-  });
-
   // Form submit
   feedbackForm.addEventListener('submit', e => {
     e.preventDefault();
-    const message = document.getElementById('feedbackMessage');
+    const nameEl    = document.getElementById('feedbackName');
+    const typeEl    = document.getElementById('feedbackType');
+    const messageEl = document.getElementById('feedbackMessage');
 
+    if (!nameEl || !nameEl.value.trim()) {
+      showToast('⚠️ Please enter your name.');
+      if (nameEl) nameEl.focus();
+      return;
+    }
     if (selectedStar === 0) {
       showToast('⭐ Please select a star rating.');
       return;
     }
-    if (!selectedTopic) {
-      showToast('📌 Please choose a topic.');
+    if (!typeEl || !typeEl.value) {
+      showToast('📌 Please select a feedback type.');
+      if (typeEl) typeEl.focus();
       return;
     }
-    if (!message.value.trim()) {
+    if (!messageEl || !messageEl.value.trim()) {
       showToast('✏️ Please write a message.');
+      if (messageEl) messageEl.focus();
       return;
+    }
+
+    const starLabels = ['', '★', '★★', '★★★', '★★★★', '★★★★★'];
+    if (successBody) {
+      successBody.textContent =
+        'Thank you, ' + nameEl.value.trim() + '! Your ' + typeEl.value +
+        ' feedback (' + starLabels[selectedStar] + ' ' + selectedStar + '/5) has been received. ' +
+        'We genuinely read every submission and use it to make EcoBin better for everyone.';
     }
 
     if (formView)    formView.style.display   = 'none';
     if (successView) successView.style.display = 'flex';
+    ecoSound.playSuccess();
     showToast('💚 Feedback submitted — thank you!');
   });
 
@@ -1095,12 +1133,9 @@ function initFeedback() {
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       feedbackForm.reset();
-      selectedStar  = 0;
-      selectedTopic = '';
+      selectedStar = 0;
       if (starHiddenInput) starHiddenInput.value = 0;
-      if (topicHidden)     topicHidden.value = '';
-      starBtns.forEach(b  => b.classList.remove('active', 'hovered'));
-      topicPills.forEach(p => p.classList.remove('active'));
+      starBtns.forEach(b => b.classList.remove('active', 'hovered'));
       if (formView)    formView.style.display    = 'block';
       if (successView) successView.style.display  = 'none';
     });

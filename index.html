@@ -1160,7 +1160,7 @@
           </div>
           <h2 class="section-title">Order Your <span class="gradient-text">EcoBin Product</span></h2>
           <p class="section-subtitle">
-            Choose the plan that fits your needs, set your quantity, and complete your details. We'll confirm your order within 24 hours.
+            Choose the bin that fits your needs, set your quantity, and complete your details. We'll confirm your order within 24 hours.
           </p>
         </div>
 
@@ -1175,46 +1175,47 @@
               <div class="order-plan-inner">
                 <div class="order-plan-icon">🏠</div>
                 <h3 class="order-plan-name">Home EcoBin</h3>
-                <div class="order-plan-price">$299 <span class="order-plan-period">each</span></div>
-                <p class="order-plan-desc">Compact solar-powered smart bin for households. Fits under kitchen counters, auto-compacts, and alerts you when full.</p>
+                <div class="order-plan-price">₹299 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">Compact smart bin for households. Fits in any corner, auto-compacts waste, and notifies you when full via app.</p>
                 <ul class="order-plan-perks">
-                  <li>✔ 30-litre AI-sorted capacity</li>
-                  <li>✔ NFC GreenRewards tap</li>
+                  <li>✔ 20-litre capacity, 3-stream sorting</li>
+                  <li>✔ Mobile app fill-level alerts</li>
                   <li>✔ 1-year warranty</li>
                 </ul>
               </div>
             </label>
 
-            <!-- Plan: Campus EcoBin -->
-            <label class="order-plan-card order-plan-featured" id="planCardCampus">
+            <!-- Plan: Smart EcoBin -->
+            <label class="order-plan-card order-plan-featured" id="planCardSmart">
               <div class="featured-ribbon">Most Popular</div>
-              <input type="radio" name="orderPlan" value="campus" class="order-radio" id="planCampus">
+              <input type="radio" name="orderPlan" value="smart" class="order-radio" id="planSmart">
               <div class="order-plan-inner">
-                <div class="order-plan-icon">🎓</div>
-                <h3 class="order-plan-name" style="color:var(--accent-mint)">Campus EcoBin</h3>
-                <div class="order-plan-price">$799 <span class="order-plan-period">each</span></div>
-                <p class="order-plan-desc">High-volume outdoor station built for universities, parks, and corporate campuses. 5:1 hydraulic compaction.</p>
+                <div class="order-plan-icon">🤖</div>
+                <h3 class="order-plan-name" style="color:var(--accent-mint)">Smart EcoBin</h3>
+                <div class="order-plan-price">₹599 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">AI-powered optical sorting bin ideal for offices, schools, and apartments. Auto-compacts and tracks diversion metrics.</p>
                 <ul class="order-plan-perks">
-                  <li>✔ 120-litre 4-stream station</li>
-                  <li>✔ Full EcoVision™ optical AI</li>
+                  <li>✔ 60-litre 4-stream AI sorting</li>
+                  <li>✔ EcoVision™ optical scanner</li>
                   <li>✔ EcoPulse™ cloud dashboard</li>
                   <li>✔ 2-year on-site warranty</li>
                 </ul>
               </div>
             </label>
 
-            <!-- Plan: Sensor Kit -->
-            <label class="order-plan-card" id="planCardSensor">
-              <input type="radio" name="orderPlan" value="sensor" class="order-radio" id="planSensor">
+            <!-- Plan: Community EcoBin -->
+            <label class="order-plan-card" id="planCardCommunity">
+              <input type="radio" name="orderPlan" value="community" class="order-radio" id="planCommunity">
               <div class="order-plan-inner">
-                <div class="order-plan-icon">📡</div>
-                <h3 class="order-plan-name">Sensor Kit</h3>
-                <div class="order-plan-price">$149 <span class="order-plan-period">each</span></div>
-                <p class="order-plan-desc">Retrofit IoT sensor module for existing bins. Adds fill-level telemetry, NB-IoT connectivity, and cloud integration.</p>
+                <div class="order-plan-icon">🏙️</div>
+                <h3 class="order-plan-name">Community EcoBin</h3>
+                <div class="order-plan-price">₹999 <span class="order-plan-period">each</span></div>
+                <p class="order-plan-desc">High-capacity solar-powered outdoor station for RWAs, parks, and public spaces. Hydraulic 5:1 self-compaction.</p>
                 <ul class="order-plan-perks">
-                  <li>✔ NB-IoT 5G connectivity</li>
-                  <li>✔ 3-year battery life</li>
-                  <li>✔ Universal bin mount</li>
+                  <li>✔ 120-litre 4-stream solar station</li>
+                  <li>✔ NFC GreenRewards citizen tap</li>
+                  <li>✔ Fleet telemetry &amp; dynamic pickup</li>
+                  <li>✔ 3-year on-site warranty</li>
                 </ul>
               </div>
             </label>
@@ -1233,23 +1234,28 @@
                   <input type="number" id="orderQty" class="qty-input" value="1" min="1" max="999" readonly>
                   <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
                 </div>
-                <div class="order-total-badge" id="orderTotalBadge">Total: $299</div>
+                <div class="order-total-badge" id="orderTotalBadge">Total: ₹299</div>
               </div>
 
               <div class="order-fields-grid">
                 <div class="form-group">
                   <label for="orderName">Full Name <span class="required-star">*</span></label>
-                  <input type="text" id="orderName" class="form-input" placeholder="Jane Smith" required>
+                  <input type="text" id="orderName" class="form-input" placeholder="Priya Sharma" required>
                 </div>
                 <div class="form-group">
-                  <label for="orderContact">Phone / Email <span class="required-star">*</span></label>
-                  <input type="text" id="orderContact" class="form-input" placeholder="+1 555-0100 or jane@email.com" required>
+                  <label for="orderPhone">Phone Number <span class="required-star">*</span></label>
+                  <input type="tel" id="orderPhone" class="form-input" placeholder="10-digit mobile number" maxlength="10" required>
                 </div>
               </div>
 
               <div class="form-group">
+                <label for="orderEmail">Email Address <span class="optional-tag">(optional)</span></label>
+                <input type="email" id="orderEmail" class="form-input" placeholder="priya@example.com">
+              </div>
+
+              <div class="form-group">
                 <label for="orderAddress">Delivery Address <span class="required-star">*</span></label>
-                <textarea id="orderAddress" class="form-textarea" rows="3" placeholder="Street, City, State, ZIP / Postcode, Country" required></textarea>
+                <textarea id="orderAddress" class="form-textarea" rows="3" placeholder="Flat / House No., Street, City, State, PIN Code" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-glow order-submit-btn" id="orderSubmitBtn">
@@ -1264,6 +1270,7 @@
           <div class="success-icon-ring">✅</div>
           <h3 class="success-heading">Order Received!</h3>
           <p class="success-body" id="orderSuccessMsg">Thank you! We'll reach out within 24 hours to confirm your order and arrange delivery.</p>
+          <p class="order-id-display" id="orderIdDisplay"></p>
           <button class="btn btn-secondary" id="orderResetBtn">Place Another Order</button>
         </div>
 
@@ -1289,6 +1296,18 @@
         <div class="feedback-card" id="feedbackFormView">
           <form id="feedbackForm" novalidate>
 
+            <!-- Name -->
+            <div class="form-group">
+              <label for="feedbackName">Your Name <span class="required-star">*</span></label>
+              <input type="text" id="feedbackName" class="form-input" placeholder="Priya Sharma" required>
+            </div>
+
+            <!-- Optional Email -->
+            <div class="form-group">
+              <label for="feedbackEmail">Email <span class="optional-tag">(optional — we'll reply if you'd like)</span></label>
+              <input type="email" id="feedbackEmail" class="form-input" placeholder="you@example.com">
+            </div>
+
             <!-- Star Rating -->
             <div class="form-group">
               <label class="form-label-sm">Overall Rating <span class="required-star">*</span></label>
@@ -1302,28 +1321,23 @@
               <input type="hidden" id="feedbackStarValue" value="0">
             </div>
 
-            <!-- Topic -->
+            <!-- Feedback Type -->
             <div class="form-group">
-              <label for="feedbackTopic">Topic <span class="required-star">*</span></label>
-              <div class="feedback-topic-pills" id="feedbackTopicPills">
-                <button type="button" class="topic-pill" data-topic="Bin">🗑️ Bin</button>
-                <button type="button" class="topic-pill" data-topic="Pickup">🚚 Pickup</button>
-                <button type="button" class="topic-pill" data-topic="Website">🌐 Website</button>
-                <button type="button" class="topic-pill" data-topic="Other">💬 Other</button>
-              </div>
-              <input type="hidden" id="feedbackTopicValue" value="">
+              <label for="feedbackType">Feedback Type <span class="required-star">*</span></label>
+              <select id="feedbackType" class="form-select" required>
+                <option value="" disabled selected>— Select a category —</option>
+                <option value="Product quality">🏆 Product Quality</option>
+                <option value="Delivery">🚚 Delivery</option>
+                <option value="Website">🌐 Website</option>
+                <option value="Suggestion">💡 Suggestion</option>
+                <option value="Complaint">⚠️ Complaint</option>
+              </select>
             </div>
 
             <!-- Message -->
             <div class="form-group">
               <label for="feedbackMessage">Your Message <span class="required-star">*</span></label>
               <textarea id="feedbackMessage" class="form-textarea" rows="4" placeholder="Tell us what you think — the good, the bad, and the ideas…" required></textarea>
-            </div>
-
-            <!-- Optional Email -->
-            <div class="form-group">
-              <label for="feedbackEmail">Email <span class="optional-tag">(optional — we'll reply if you'd like)</span></label>
-              <input type="email" id="feedbackEmail" class="form-input" placeholder="you@example.com">
             </div>
 
             <button type="submit" class="btn btn-primary btn-glow" style="width:100%;" id="feedbackSubmitBtn">
@@ -1336,7 +1350,7 @@
         <div class="feedback-success-view" id="feedbackSuccessView" style="display:none;" aria-live="polite">
           <div class="success-icon-ring">🙏</div>
           <h3 class="success-heading">Thank You!</h3>
-          <p class="success-body">Your feedback has been received. We genuinely read every submission and use it to improve EcoBin for everyone.</p>
+          <p class="success-body" id="feedbackSuccessBody">Your feedback has been received. We genuinely read every submission and use it to improve EcoBin for everyone.</p>
           <button class="btn btn-secondary" id="feedbackResetBtn">Submit More Feedback</button>
         </div>
 
